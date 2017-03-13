@@ -1,5 +1,5 @@
 export class HelloWorld {
     sayHi (name: string): string {
-        return "Hi, Karan";
+        return "Hi, " + name;
     }
 }
