@@ -4,7 +4,9 @@
   "description": "\"# tdd-typescript\"",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "mocha dist/tests"
   },
   "devDependencies": {
     "@types/mocha": "2.2.39",
