@@ -1,0 +1,22 @@
+{
+  "name": "ts_gosoft",
+  "version": "1.0.0",
+  "description": "\"# tdd-typescript\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bomb0069/tdd-typescript.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "karan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bomb0069/tdd-typescript/issues"
+  },
+  "homepage": "https://github.com/bomb0069/tdd-typescript#readme"
+}
