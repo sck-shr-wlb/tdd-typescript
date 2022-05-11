@@ -11,10 +11,10 @@
   "devDependencies": {
     "@types/mocha": "2.2.39",
     "@types/should": "8.1.30",
-    "mocha": "3.2.0",
+    "mocha": "^10.0.0",
     "should": "11.2.0",
     "typescript": "2.1.6"
-  },  
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bomb0069/tdd-typescript.git"
