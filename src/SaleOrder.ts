@@ -1,5 +1,14 @@
 export class SaleOrder {
+
+     status : string = "Draft";
+
+    
+    saveDraft(){
+        this.status =  "Waiting for Update";
+    };
+    submit(){
+    };
     getStatus() {
-        return "Draft";
+        return this.status;
     }
 }
