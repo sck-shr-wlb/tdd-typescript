@@ -7,43 +7,59 @@ describe("SaleOrder", () => {
     describe("Success Case ", () => {
         it("create SaleOrder status should be Draft", () => {
             // Arrange
-            const expectedStatus = "Draft";
+            const status = "Draft";
 
             // Action
             const saleOrder = new SaleOrder();
             const result = saleOrder.getStatus();
 
             // Assert
-            result.should.be.equal(expectedStatus);
-        }),
+            result.should.be.equal(status);
+        })
 
         it("หลังจากสร้าง Sale Order และทำการ Save Draft สถานะจะต้องเป็น Waiting for Update", () => {
             // Arrange
-            const expectedStatus = "Waiting for Update";
+            const status = "Waiting for Update";
 
             // Action
             const saleOrder = new SaleOrder();
             saleOrder.saveDraft();
+            
             const result = saleOrder.getStatus();
             
-
             // Assert
-            result.should.be.equal(expectedStatus);
+            result.should.be.equal(status);
         })
+
         it("หลังจาก status เป็น Waiting for Update และทำการ กด Submit สถานะจะต้องเป็น Wait for Approval", () => {
             // Arrange
-            const expectedStatus = "Wait for Approval";
+            const status = "Wait for Approval";
 
             // Action
             const saleOrder = new SaleOrder();
             saleOrder.saveDraft();
             saleOrder.submit();
+
             const result = saleOrder.getStatus();
            
-            
-
             // Assert
-            result.should.be.equal(expectedStatus);
+            result.should.be.equal(status);
+        })
+
+        it("ถ้าสถานะเป็น Rejected เมื่อกด submit ต้องเกิด error", () => {
+            const expectedError = "ไม่สามารถกด submit ได้";
+            try{
+                // Arrange
+                const status = "Rejected";
+                // Action
+                const saleOrder = new SaleOrder();
+                saleOrder.setStatus(status);
+                saleOrder.submit();
+
+                expectedError.should.be.equal('')
+            }catch(e){
+                e.message.should.be.equal(expectedError)
+            }
         })
     })
 });
