@@ -30,7 +30,6 @@ describe("SaleOrder", () => {
             // Assert
             result.should.be.equal(status);
         })
-
         it("หลังจาก status เป็น Waiting for Update และทำการ กด Submit สถานะจะต้องเป็น Waiting for Approval", () => {
             // Arrange
             const status = "Waiting for Approval";
@@ -60,6 +59,20 @@ describe("SaleOrder", () => {
             }catch(e){
                 e.message.should.be.equal(expectedError)
             }
+        })
+
+        it("หลังจากสร้าง Sale order แล้วทำการ submit สถานะจะต้องเป็น Waiting for Approval", () => {
+            // Arrange
+            const status = "Waiting for Approval";
+
+            // Action
+            const saleOrder = new SaleOrder();
+            saleOrder.submit();
+
+            const result = saleOrder.getStatus();
+           
+            // Assert
+            result.should.be.equal(status);
         })
     })
 });
