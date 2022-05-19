@@ -11,7 +11,7 @@ export class SaleOrder {
             throw new Error ("ไม่สามารถกด submit ได้");
         }
 
-        this.status = "Wait for Approval";
+        this.status = "Waiting for Approval";
     };
 
     setStatus(status: string){    

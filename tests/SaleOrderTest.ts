@@ -31,9 +31,9 @@ describe("SaleOrder", () => {
             result.should.be.equal(status);
         })
 
-        it("หลังจาก status เป็น Waiting for Update และทำการ กด Submit สถานะจะต้องเป็น Wait for Approval", () => {
+        it("หลังจาก status เป็น Waiting for Update และทำการ กด Submit สถานะจะต้องเป็น Waiting for Approval", () => {
             // Arrange
-            const status = "Wait for Approval";
+            const status = "Waiting for Approval";
 
             // Action
             const saleOrder = new SaleOrder();
