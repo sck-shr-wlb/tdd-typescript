@@ -74,5 +74,36 @@ describe("SaleOrder", () => {
             // Assert
             result.should.be.equal(status);
         })
+
+        it("หลังจาก Submit Sale Order แล้วสถานะจะเป็น Waiting for Approval แล้วกด Revise สถานะต้องเป็น Revising", () => {
+            // Arrange
+            const status = "Revising";
+
+            // Action
+            const saleOrder = new SaleOrder();
+            saleOrder.submit();
+            saleOrder.revise();
+
+            const result = saleOrder.getStatus();
+           
+            // Assert
+            result.should.be.equal(status);
+        })
+
+        it("หลังจากสถานะเป็น Revising ถ้ากด Submit สถานะจะต้องเป็น Waiting for Approval", () => {
+            // Arrange
+            const status = "Waiting for Approval";
+
+            // Action
+            const saleOrder = new SaleOrder();
+            saleOrder.submit();
+            saleOrder.revise();
+            saleOrder.submit();
+
+            const result = saleOrder.getStatus();
+           
+            // Assert
+            result.should.be.equal(status);
+        })        
     })
 });
