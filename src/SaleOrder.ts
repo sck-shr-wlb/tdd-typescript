@@ -1,20 +1,24 @@
 export class SaleOrder {
+    status : string = "Draft";
+    revising : string = "Revising";
+    waitingForUpdate : string = "Waiting for Update";
+    waitingForApproval : string = "Waiting for Approval";
+    rejected : string = "Rejected";
+    
     revise() {
-        this.status = "Revising";
+        this.status = this.revising;
     }
 
-    status: string = "Draft";
-
     saveDraft(){
-        this.status =  "Waiting for Update";
+        this.status =  this.waitingForUpdate;
     };
 
     submit(){
-        if(this.status === "Rejected"){
+        if(this.status === this.rejected){
             throw new Error ("ไม่สามารถกด submit ได้");
         }
 
-        this.status = "Waiting for Approval";
+        this.status = this.waitingForApproval;
     };
 
     setStatus(status: string){    
