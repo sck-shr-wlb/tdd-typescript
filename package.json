@@ -9,10 +9,13 @@
     "test": "mocha dist/tests"
   },
   "devDependencies": {
+    "@types/jest": "^27.5.1",
     "@types/mocha": "2.2.39",
     "@types/should": "8.1.30",
+    "jest": "^28.1.0",
     "mocha": "^10.0.0",
     "should": "11.2.0",
+    "ts-jest": "^28.0.2",
     "typescript": "2.1.6"
   },
   "repository": {

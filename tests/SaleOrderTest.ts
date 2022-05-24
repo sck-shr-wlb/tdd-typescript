@@ -51,6 +51,16 @@ describe("SaleOrder", () => {
             (function(){ saleOrder.submit() }).should.throw(expectedError);
         })
 
+        it("ถ้าสถานะเป็น Rejected เมื่อกด submit ต้องเกิด error Jest", () => {
+            const expectedError = "ไม่สามารถกด submit ได้";
+            
+            saleOrder.setStatus(saleOrder.rejected);
+
+            (function(){ saleOrder.submit() }).should.throw(expectedError);
+
+            // expect(() => function(){ saleOrder.submit() }).toThrow(expectedError);
+        })
+
         it("หลังจากสร้าง Sale order แล้วทำการ submit สถานะจะต้องเป็น Waiting for Approval", () => {
             // Arrange
 
@@ -91,5 +101,7 @@ describe("SaleOrder", () => {
             // Assert
             result.should.be.equal(saleOrder.waitingForApproval);
         })        
+
+      
     })
 });
