@@ -45,17 +45,10 @@ describe("SaleOrder", () => {
 
         it("ถ้าสถานะเป็น Rejected เมื่อกด submit ต้องเกิด error", () => {
             const expectedError = "ไม่สามารถกด submit ได้";
-            try{
-                // Arrange
+            
+            saleOrder.setStatus(saleOrder.rejected);
 
-                // Action
-                saleOrder.setStatus(saleOrder.rejected);
-                saleOrder.submit();
-
-                expectedError.should.be.equal('')
-            }catch(e){
-                e.message.should.be.equal(expectedError)
-            }
+            (function(){ saleOrder.submit() }).should.throw(expectedError);
         })
 
         it("หลังจากสร้าง Sale order แล้วทำการ submit สถานะจะต้องเป็น Waiting for Approval", () => {
