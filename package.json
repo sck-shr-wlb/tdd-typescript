@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "pretest": "npm run build",
-    "test": "mocha dist/tests"
+    "test": "dist/tests"
   },
   "devDependencies": {
     "@types/jest": "^27.5.1",
