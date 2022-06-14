@@ -35,4 +35,19 @@ describe("Tennis", () => {
         actualScore.should.be.equal(expectedScore);
 
     })
+
+    it('เมื่อ Player A ได้ 3 แต้มต้องเป็น 40-Love',()=>{
+        const expectedScore = "40-Love"
+
+        const tennis = new Tennis();
+        tennis.aWonPoint();
+        tennis.aWonPoint();
+        tennis.aWonPoint();
+
+        const actualScore = tennis.score();
+
+       actualScore.should.be.equal(expectedScore)
+        
+
+    })
 });
