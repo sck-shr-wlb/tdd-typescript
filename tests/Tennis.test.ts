@@ -50,4 +50,46 @@ describe("Tennis", () => {
         
 
     })
+
+    it('เมื่อ Player A ได้ 4 แต้ม และ Player A ชนะ', () => {
+        const expectedScore = 'Win for A'
+        
+        const tennis = new Tennis();
+        tennis.aWonPoint();
+        tennis.aWonPoint();
+        tennis.aWonPoint();
+        tennis.aWonPoint();
+
+        const actualScore = tennis.score();
+
+        actualScore.should.be.equal(expectedScore)
+
+    })
+
+    it('เมื่อ Player B ได้แต้ม แต้มต้องเป็น Love-15',()=>{
+        const expectedScore = "Love-15";
+
+        const tennis = new Tennis();
+        tennis.bWonPoint();
+        const actualScore = tennis.score();
+
+        actualScore.should.be.equal(expectedScore);
+
+    })
+
+    it('เมื่อ Player B ได้ 4 แต้ม และ Player B ชนะ', () => {
+        const expectedScore = 'Win for B'
+        
+        const tennis = new Tennis();
+        tennis.bWonPoint();
+        tennis.bWonPoint();
+        tennis.bWonPoint();
+        tennis.bWonPoint();
+
+        const actualScore = tennis.score();
+
+        actualScore.should.be.equal(expectedScore)
+
+    })
+
 });
