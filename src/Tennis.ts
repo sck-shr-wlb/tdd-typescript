@@ -18,6 +18,9 @@ export class Tennis{
         if (this.playerB == 4) {
             return `${array[this.playerB]}B`
         }
+        if(this.playerA == 3 && this.playerB == 3) {
+            return 'Deuce'
+        }
 
         return `${array[this.playerA]}-${array[this.playerB]}` 
     }
