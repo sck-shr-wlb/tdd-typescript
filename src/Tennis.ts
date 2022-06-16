@@ -12,7 +12,7 @@ export class Tennis{
     score() {
         const array: Array<String> = ['Love','15','30','40']
         const candidateGamescore = array.length - 1;
-        if(this.playerA > candidateGamescore || this.playerB > candidateGamescore) {
+        if(this.isWin(candidateGamescore)) {
             if(this.playerA - this.playerB >= 2) {
                 return 'Win for A'
             }
@@ -21,7 +21,7 @@ export class Tennis{
             }
         }
 
-        if(this.playerA >= candidateGamescore || this.playerB >= candidateGamescore) {
+        if(this.isDeuce(candidateGamescore)) {
             if(this.playerA === this.playerB) {
                 return 'Deuce'
             }
@@ -36,4 +36,12 @@ export class Tennis{
         return `${array[this.playerA]}-${array[this.playerB]}` 
     }
     
+
+    private isWin(candidateGamescore: number) {
+        return this.playerA > candidateGamescore || this.playerB > candidateGamescore;
+    }
+
+    private isDeuce(candidateGamescore: number) {
+        return this.playerA >= candidateGamescore || this.playerB >= candidateGamescore;
+    }
 }
