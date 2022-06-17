@@ -1,18 +1,24 @@
 export class Tennis{
-  
+    
     playerA: number = 0;
     playerB: number = 0
-
+    array: Array<String> ;
+    candidateGamescore:number;
+    constructor(arrayScore?: Array<String>) {
+        {arrayScore ? this.array = arrayScore : this.array = ['Love','15','30','40']};
+        this.candidateGamescore = this.array.length -1
+      }
     aWonPoint() {
         this.playerA++;
     }
     bWonPoint() {
        this.playerB++
     }
+
     score() {
-        const array: Array<String> = ['Love','15','30','40']
-        const candidateGamescore = array.length - 1;
-        if(this.isWin(candidateGamescore)) {
+        
+        
+        if(this.isWin(this.candidateGamescore)) {
             if(this.playerA - this.playerB >= 2) {
                 return 'Win for A'
             }
@@ -21,7 +27,7 @@ export class Tennis{
             }
         }
 
-        if(this.isDeuce(candidateGamescore)) {
+        if(this.isDeuce(this.candidateGamescore)) {
             if(this.playerA === this.playerB) {
                 return 'Deuce'
             }
@@ -33,7 +39,7 @@ export class Tennis{
             }
         }
 
-        return `${array[this.playerA]}-${array[this.playerB]}` 
+        return `${this.array[this.playerA]}-${this.array[this.playerB]}` 
     }
     
 
