@@ -101,5 +101,18 @@ describe("Tennis", () => {
         actualScore.should.be.equal(expectedScore);
 
     })
+    it('เมื่อ Player A ได้ 3 แต้ม และ Player A ชนะ', () => {
+        const expectedScore = 'Win for A'
+        
+        const tennis = new Tennis(['Love','15','30']);
+        tennis.aWonPoint();
+        tennis.aWonPoint();
+        tennis.aWonPoint();
+
+        const actualScore = tennis.score();
+
+        actualScore.should.be.equal(expectedScore)
+
+    })
 
 });
