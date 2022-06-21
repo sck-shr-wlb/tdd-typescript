@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "c5b61ddf-b26a-44b6-a898-d539902d3fbf",
+		"name": "iworkflow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "startWorkflow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"processName ต้องเท่ากับ Process Name 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.processName).to.eql('Process Name 1');",
+							"});",
+							"",
+							"pm.test(\"instanceId ต้องท่ากับ 1970324836981899\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.instanceId).to.eql('1970324836981899');",
+							"    pm.collectionVariables.set(\"instanceId\", jsonData.instanceId);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "YAGR0Z3%ASDJASLKJ123",
+						"type": "default"
+					},
+					{
+						"key": "code",
+						"value": "WK001",
+						"type": "default"
+					},
+					{
+						"key": "bu",
+						"value": "BU1",
+						"type": "default"
+					},
+					{
+						"key": "timezone",
+						"value": "5294923649234237",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/workflowservice/startWorkflow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"workflowservice",
+						"startWorkflow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currentState",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"transId ต้องเท่ากับ 0000000000000001\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.transId).to.eql('0000000000000001');",
+							"",
+							"    pm.collectionVariables.set(\"transId\", jsonData.transId);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "YAGR0Z3%ASDJASLKJ123",
+						"type": "default"
+					},
+					{
+						"key": "instanceId",
+						"value": "{{instanceId}}",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/workflowservice/getCurrentState",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"workflowservice",
+						"getCurrentState"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submit",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"value": "YAGR0Z3%ASDJASLKJ123",
+						"type": "default"
+					},
+					{
+						"key": "transId",
+						"value": "{{transId}}",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "username",
+						"value": "REQUESTER.USER",
+						"type": "default"
+					},
+					{
+						"key": "attachmentUrl",
+						"value": "https://globaltrade.cpf.co.th",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Title\": \"หัวข้อ\",\n    \"Content\": \"เนื้อหา\",\n    \"amount\": 1500,\n    \"OTHER_VARIABLE\": \"Mr.x|Thailand|General Manager\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/workflowservice/submit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"workflowservice",
+						"submit"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "instanceId",
+			"value": ""
+		},
+		{
+			"key": "transId",
+			"value": ""
+		}
+	]
+}
