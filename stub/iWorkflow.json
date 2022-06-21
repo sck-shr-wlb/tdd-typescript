@@ -1,0 +1,436 @@
+{
+  "port": 8000,
+  "protocol": "http",
+  "defaultResponse": {
+    "statusCode": 400,
+    "headers": {
+      "Connection": "Keep-Alive",
+      "Content-Length": 0
+    }
+  },
+  "stubs": [
+    {
+      "name": "start workflow",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/startWorkflow" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "code": "WK001",
+              "bu": "BU1",
+              "timezone": "5294923649234237",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "instanceId": "1970324836981899",
+              "processName": "Process Name 1",
+              "statusCode": "200"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "get current state",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/getCurrentState" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "instanceId": "1970324836981899",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "transId": "0000000000000001",
+              "activityName": "Approve",
+              "isActivated": false,
+              "isCompleted": false,
+              "approverId": "",
+              "requesterId": "",
+              "status": "",
+              "statusCode": "200",
+              "url": "",
+              "transDtl": [
+                {
+                  "username": "",
+                  "approverId": "",
+                  "nameTitle": "",
+                  "firstname": "",
+                  "lastname": "",
+                  "email": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "submit",
+      "predicates": [
+        { "equals": { "method": "POST" } },
+        { "equals": { "path": "/workflowservice/submit" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "transId": "0000000000000001",
+              "username": "REQUESTER.USER",
+              "attachmentUrl": "https://globaltrade.cpf.co.th",
+              "Content-Type": "application/json"
+            }
+          }
+        },
+        {
+          "equals": {
+            "body": {
+              "Title": "หัวข้อ",
+              "Content": "เนื้อหา",
+              "amount": 1500,
+              "OTHER_VARIABLE": "Mr.x|Thailand|General Manager"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "transId": "0000000000000001",
+              "activityName": "Requester",
+              "isActivated": false,
+              "isCompleted": false,
+              "approverId": "",
+              "requesterId": "",
+              "status": "",
+              "statusCode": "200",
+              "url": "",
+              "transDtl": [
+                {
+                  "username": "",
+                  "approverId": "",
+                  "nameTitle": "",
+                  "firstname": "",
+                  "lastname": "",
+                  "email": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "approve a request",
+      "predicates": [
+        { "equals": { "method": "POST" } },
+        { "equals": { "path": "/workflowservice/approve" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "transId": "0000000000000001",
+              "username": "APPROVER.USER",
+              "status": "Approve",
+              "attachmentUrl": "https://globaltrade.cpf.co.th",
+              "Content-Type": "application/json"
+            }
+          }
+        },
+        {
+          "equals": {
+            "body": {
+              "Title": "หัวข้อ",
+              "Content": "เนื้อหา",
+              "amount": 1500,
+              "OTHER_VARIABLE": "Mr.x|Thailand|General Manager"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "transId": "0000000000000001",
+              "activityName": "Approve",
+              "isActivated": false,
+              "isCompleted": false,
+              "approverId": "",
+              "requesterId": "",
+              "status": "",
+              "statusCode": "200",
+              "url": "",
+              "transDtl": [
+                {
+                  "username": "",
+                  "approverId": "",
+                  "nameTitle": "",
+                  "firstname": "",
+                  "lastname": "",
+                  "email": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "get instance history",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/getInstHistory" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "bu": "BU01",
+              "code": "WK00001",
+              "instanceId": "1970324836981899",
+              "approver_User": "APPROVER.USER",
+              "requester_User": "REQUESTER.USER",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": [
+              {
+                "InstanceId": "1970324836983593",
+                "IsCompleted": true,
+                "Transactions": [
+                  {
+                    "transId": "",
+                    "ReceiveDate": "",
+                    "AcceptDate": "",
+                    "Requestor": "",
+                    "Approver": "",
+                    "Value": "",
+                    "IsCompleted": true,
+                    "IsActivated": true,
+                    "ReqEmpId": 0,
+                    "AppvEmpId": 0,
+                    "approvalType": "",
+                    "Title": "",
+                    "Content": "",
+                    "changedDate": "",
+                    "createdDate": "",
+                    "Activity": {
+                      "Name": "Approval2",
+                      "ActType": "Approval"
+                    }
+                  }
+                ],
+                "WorkflowVersion": {
+                  "VersionNumber": 1,
+                  "Workflow": {
+                    "Code": "W09",
+                    "Name": "Workflow",
+                    "BU": "W9"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "get instance current by user",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/getInstCurrentByUser" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "bu": "BU01",
+              "code": "WK00001",
+              "approver": "APPROVER.USER",
+              "requester": "REQUESTER.USER",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "InstanceId": "0000000000000001",
+              "IsCompleted": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "get process by group",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/getInstCurrentByUser" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "groupCode": "SYSTEM01",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "Code": "SYS001",
+              "Name": "System 01",
+              "Process": [
+                {
+                  "Code": "PROC1",
+                  "Name": "Process 1"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "cancel instance",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/cancelInstance" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "instanceId": " 1970324836981899",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "InstanceId": "1970324836980795",
+              "IsCompleted": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rollback state",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/rollbackState" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "instanceId": " 1970324836981899",
+              "actType": "Request",
+              "position": 0,
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "status": "Complete",
+              "currentTransactionID": "3940649673969292",
+              "activityName": "Request"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "get approver by instance",
+      "predicates": [
+        { "equals": { "method": "GET" } },
+        { "equals": { "path": "/workflowservice/getApproverByInstance" } },
+        {
+          "equals": {
+            "headers": {
+              "key": "YAGR0Z3%ASDJASLKJ123",
+              "instanceId": " 1970324836981899",
+              "Content-Type": "application/json"
+            }
+          }
+        }
+      ],
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "instanceId": "12324",
+              "approver": [
+                {
+                  "approverUser": "Appr.usr",
+                  "reason": "REASON",
+                  "approveDate": "17/01/2019 15.43",
+                  "status": "Approve",
+                  "nameActivity": "approve1"
+                },
+                {
+                  "approverUser": "Appr.usr",
+                  "reason": "REASON",
+                  "approveDate": "18/01/2019 15.43",
+                  "status": "Approve",
+                  "nameActivity": "AVP"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
