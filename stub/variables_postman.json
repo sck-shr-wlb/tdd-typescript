@@ -1,0 +1,14 @@
+{
+	"id": "146e52f0-fd32-4814-8e58-8a3c0f4d5eb7",
+	"values": [
+		{
+			"key": "local8000",
+			"value": "http://localhost:8000",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-06-22T02:16:33.874Z",
+	"_postman_exported_using": "Postman/9.19.0"
+}

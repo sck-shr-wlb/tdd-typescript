@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "f4d913d7-09dc-4a39-a76e-12956c99f7cd",
+		"_postman_id": "4b47d1c4-bf77-4fbd-860c-4fa55118467c",
 		"name": "iworkflow",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "21059034"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -63,12 +62,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8000/workflowservice/startWorkflow",
-					"protocol": "http",
+					"raw": "{{local8000}}/workflowservice/startWorkflow",
 					"host": [
-						"localhost"
+						"{{local8000}}"
 					],
-					"port": "8000",
 					"path": [
 						"workflowservice",
 						"startWorkflow"
@@ -119,12 +116,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8000/workflowservice/getCurrentState",
-					"protocol": "http",
+					"raw": "{{local8000}}/workflowservice/getCurrentState",
 					"host": [
-						"localhost"
+						"{{local8000}}"
 					],
-					"port": "8000",
 					"path": [
 						"workflowservice",
 						"getCurrentState"
@@ -188,15 +183,87 @@
 					"raw": "{\n    \"Title\": \"หัวข้อ\",\n    \"Content\": \"เนื้อหา\",\n    \"amount\": 1500,\n    \"OTHER_VARIABLE\": \"Mr.x|Thailand|General Manager\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8000/workflowservice/submit",
-					"protocol": "http",
+					"raw": "{{local8000}}/workflowservice/submit",
 					"host": [
-						"localhost"
+						"{{local8000}}"
 					],
-					"port": "8000",
 					"path": [
 						"workflowservice",
 						"submit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "approve a request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"activityName จะต้องเท่ากับ Approve\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.activityName).to.eql('Approve');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "key",
+						"value": "YAGR0Z3%ASDJASLKJ123",
+						"type": "default"
+					},
+					{
+						"key": "transId",
+						"value": "{{transId}}",
+						"type": "default"
+					},
+					{
+						"key": "username",
+						"value": "APPROVER.USER",
+						"type": "default"
+					},
+					{
+						"key": "status",
+						"value": "Approve",
+						"type": "default"
+					},
+					{
+						"key": "attachmentUrl",
+						"value": "https://globaltrade.cpf.co.th",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Title\": \"หัวข้อ\",\n    \"Content\": \"เนื้อหา\",\n    \"amount\": 1500,\n    \"OTHER_VARIABLE\": \"Mr.x|Thailand|General Manager\"\n}"
+				},
+				"url": {
+					"raw": "{{local8000}}/workflowservice/approve",
+					"host": [
+						"{{local8000}}"
+					],
+					"path": [
+						"workflowservice",
+						"approve"
 					]
 				}
 			},

@@ -14,3 +14,8 @@
     ```shell
     newman run [file_collection_postman]  
     ```
+
+4. ถ้ามี variables global ใน postman จะต้อง export มาใน โฟลเดอร์งาน
+    ```shell
+    newman run -e [file_variables] [file_collection_postman]  
+    ```
