@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4b47d1c4-bf77-4fbd-860c-4fa55118467c",
+		"_postman_id": "90dfc0b0-6de0-4767-9d68-b74d54bc04df",
 		"name": "iworkflow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -264,6 +264,78 @@
 					"path": [
 						"workflowservice",
 						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get instance history",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"IsCompleted จะต้องเท่ากับ true\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData[0].IsCompleted).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "key",
+						"value": "YAGR0Z3%ASDJASLKJ123",
+						"type": "default"
+					},
+					{
+						"key": "bu",
+						"value": "BU01",
+						"type": "default"
+					},
+					{
+						"key": "code",
+						"value": "WK00001",
+						"type": "default"
+					},
+					{
+						"key": "instanceId",
+						"value": "1970324836981899",
+						"type": "default"
+					},
+					{
+						"key": "approver_User",
+						"value": "APPROVER.USER",
+						"type": "default"
+					},
+					{
+						"key": "requester_User",
+						"value": "REQUESTER.USER",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "{{local8000}}/workflowservice/getInstHistory",
+					"host": [
+						"{{local8000}}"
+					],
+					"path": [
+						"workflowservice",
+						"getInstHistory"
 					]
 				}
 			},
