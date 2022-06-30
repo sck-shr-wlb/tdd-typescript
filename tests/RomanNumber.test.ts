@@ -29,5 +29,14 @@ describe("RomanNumber", () => {
        romanNumber.should.be.equal(expectedRomanNumber);
 
     })
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 4 เลข Roman จะต้องเป็น IV',()=>{
+        
+        const expectedRomanNumber = "IV";
+
+       const romanNumber = convertRomanNumber(4);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
     
 })
