@@ -92,6 +92,136 @@ describe("RomanNumber", () => {
        romanNumber.should.be.equal(expectedRomanNumber);
 
     })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 13 เลข Roman จะต้องเป็น XIII',()=>{
+        
+        const expectedRomanNumber = "XIII";
+
+       const romanNumber = convertRomanNumber(13);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 14 เลข Roman จะต้องเป็น XIV',()=>{
+        
+        const expectedRomanNumber = "XIV";
+
+       const romanNumber = convertRomanNumber(14);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 19 เลข Roman จะต้องเป็น XIX',()=>{
+        
+        const expectedRomanNumber = "XIX";
+
+       const romanNumber = convertRomanNumber(19);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 24 เลข Roman จะต้องเป็น XXIV',()=>{
+        
+        const expectedRomanNumber = "XXIV";
+
+       const romanNumber = convertRomanNumber(24);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 40 เลข Roman จะต้องเป็น XL',()=>{
+        
+        const expectedRomanNumber = "XL";
+
+       const romanNumber = convertRomanNumber(40);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 44 เลข Roman จะต้องเป็น XLIV',()=>{
+        
+        const expectedRomanNumber = "XLIV";
+
+       const romanNumber = convertRomanNumber(44);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 59 เลข Roman จะต้องเป็น LIX',()=>{
+        
+        const expectedRomanNumber = "LIX";
+
+       const romanNumber = convertRomanNumber(59);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 90 เลข Roman จะต้องเป็น XC',()=>{
+        
+        const expectedRomanNumber = "XC";
+
+       const romanNumber = convertRomanNumber(90);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 100 เลข Roman จะต้องเป็น C',()=>{
+        
+        const expectedRomanNumber = "C";
+
+       const romanNumber = convertRomanNumber(100);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 494 เลข Roman จะต้องเป็น CDXCIV',()=>{
+        
+        const expectedRomanNumber = "CDXCIV";
+
+       const romanNumber = convertRomanNumber(494);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 500 เลข Roman จะต้องเป็น D',()=>{
+        
+        const expectedRomanNumber = "D";
+
+       const romanNumber = convertRomanNumber(500);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 949 เลข Roman จะต้องเป็น CMXLIX',()=>{
+        
+        const expectedRomanNumber = "CMXLIX";
+
+       const romanNumber = convertRomanNumber(949);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 1000 เลข Roman จะต้องเป็น M',()=>{
+        
+        const expectedRomanNumber = "M";
+
+       const romanNumber = convertRomanNumber(1000);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
     
     
 })

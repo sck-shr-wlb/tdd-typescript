@@ -1,6 +1,6 @@
 export const convertRomanNumber = (num : number) => {
-    let arrRoman = ['X','IX','V','IV','I']
-    let arrArabic = [10,9,5,4,1]
+    let arrRoman = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I']
+    let arrArabic = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
     let Roman = '';
     
     arrRoman.forEach((element,index) => {
