@@ -1,5 +1,5 @@
 import "should"
-import {convertRomanNumber} from '../src/RomanConvertNumber'
+import {arrRomanArabic, convert, convertRomanNumber} from '../src/RomanConvertNumber'
 
 describe("RomanNumber", () => {
     it('เมื่อเลข Arabic มีค่าเท่ากับ 1 เลข Roman จะต้องเป็น I',()=>{
@@ -222,6 +222,52 @@ describe("RomanNumber", () => {
        romanNumber.should.be.equal(expectedRomanNumber);
 
     })
-    
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 1000 เลข Roman จะต้องเป็น M โดยการเพิ่ม format',()=>{
+        
+        const expectedRomanNumber = "M";
+
+       const romanNumber = convertRomanNumber(1000,arrRomanArabic);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 14 เลข Roman จะต้องเป็น XF',()=>{
+        
+        const expectedRomanNumber = "XF";
+
+        const format = [{roman:'X',arabic:10},{roman:'F',arabic:4}]
+
+       const romanNumber = convertRomanNumber(14,format);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 11 เลข Roman จะต้องเป็น XI',()=>{
+        
+        const expectedRomanNumber = "XI";
+
+        const format = [{roman:'X',arabic:10},{roman:'I',arabic:1}]
+
+       const romanNumber = convertRomanNumber(11,format);
+
+       romanNumber.should.be.equal(expectedRomanNumber);
+
+    })
+
+    it('เมื่อเลข Arabic มีค่าเท่ากับ 11 เลข Roman จะต้องเป็น XI และ 14 เลข Roman จะต้องเป็น XF',()=>{
+        
+        const expectedRomanNumber = "XI";
+
+        const format = [{roman:'X',arabic:10},{roman:'F',arabic:4},{roman:'I',arabic:1}]
+
+       const romanNumber = convert(format);
+
+       romanNumber(11).should.be.equal(expectedRomanNumber);
+       romanNumber(14).should.be.equal("XF");
+
+    })
     
 })
