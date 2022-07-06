@@ -19,12 +19,11 @@ export const convertRomanNumber = (num : number, format:Array<FormatType> = arrR
 }
 
 export const convert = (format:Array<FormatType>) =>( num:number) => {
-    let Roman = '';
-    format.forEach(element =>{
-        for(; num >= element.arabic ; num -= element.arabic){
-            Roman += element.roman;
+   const reduceFn = function(roman,itemRomanArabic){
+        for(; num >= itemRomanArabic.arabic ; num -= itemRomanArabic.arabic){
+            roman += itemRomanArabic.roman;
+        }
+    return roman
     }
-    })
-    
-    return Roman;
+  return format.reduce(reduceFn,'')
 }
