@@ -12,7 +12,7 @@
     {
       "name": "start workflow",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/startWorkflow" } },
         {
           "equals": {
@@ -43,7 +43,7 @@
     {
       "name": "get current state",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/getCurrentState" } },
         {
           "equals": {
@@ -203,7 +203,7 @@
     {
       "name": "get instance history",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/getInstHistory" } },
         {
           "equals": {
@@ -268,7 +268,7 @@
     {
       "name": "get instance current by user",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/getInstCurrentByUser" } },
         {
           "equals": {
@@ -299,7 +299,7 @@
     {
       "name": "get process by group",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/getInstCurrentByUser" } },
         {
           "equals": {
@@ -333,7 +333,7 @@
     {
       "name": "cancel instance",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/cancelInstance" } },
         {
           "equals": {
@@ -361,7 +361,7 @@
     {
       "name": "rollback state",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/rollbackState" } },
         {
           "equals": {
@@ -392,7 +392,7 @@
     {
       "name": "get approver by instance",
       "predicates": [
-        { "equals": { "method": "GET" } },
+        { "equals": { "method": "POST" } },
         { "equals": { "path": "/workflowservice/getApproverByInstance" } },
         {
           "equals": {
