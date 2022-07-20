@@ -5,14 +5,15 @@ import axios from "axios";
     describe("iWorkflow", () => {
         const mock = new mockAdapter(axios)
         it("เมื่อ start workflow แล้วจะต้องได้ instanceId = 1970324836981899", async () => {
-            const header = {
+            const headers = {
+                Accept: 'application/json, text/plain, */*',
                 key:"YAGR0Z3%ASDJASLKJ123",
                 code:"WK001",
                 bu:"BU1",
                 timezone: "5294923649234237",
                 "Content-Type": "application/json"
             }
-            mock.onPost("http://localhost:8000/workflowservice/startWorkflow",{}).reply(200,{
+            mock.onPost("http://localhost:8000/workflowservice/startWorkflow",{},headers).reply(200,{
                     "instanceId": "1970324836981899",
                     "processName": "Process Name 1",
                     "statusCode": "200"
